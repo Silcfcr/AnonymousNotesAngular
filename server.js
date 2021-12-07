@@ -12,7 +12,7 @@ const app = express();
 
 app.set('views', __dirname + '/client/views');
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, "./authorsApp/dist/authorsApp")));
+app.use(express.static(path.join(__dirname, "./NotesApp/dist/NotesApp")));
 app.use(cors());
 app.use(flash());
 app.use(express.urlencoded({ extended: true }));
@@ -24,8 +24,8 @@ app.use(session({
     cookie: { maxAge: 60000 * 20 }
 }));
 
-app.use('/api', APIRouter);
+app.use('', APIRouter);
 
 app.listen(process.env.PORT, function () {
-    console.log("The users server is running in port 8181.");
+    console.log("The users server is running in port 8000.");
 });
